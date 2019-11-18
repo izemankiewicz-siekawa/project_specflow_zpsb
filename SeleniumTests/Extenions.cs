@@ -25,44 +25,6 @@ namespace SeleniumTests
             });
         }
 
-        /// <summary>
-        /// Select dropdown value by its Name
-        /// </summary>
-        /// <param name="element"></param>
-        /// <param name="driver"></param>
-        /// <param name="value"></param>
-        public static void SelectPopupByText(this IWebElement element, IWebDriver driver, string value)
-        {
-            element.Click();
-            BasePage basePage = new BasePage(driver);
-            basePage.SelectDropdownValue = value;
-            var newSelectDropdown = WaitForElementToBeStaleAndClickable(driver, basePage.SelectDropdownByText, basePage.SelectDropdownTextXpath);
-            newSelectDropdown.WaitToLoadText(driver);
-            newSelectDropdown.Click();
-        }
-
-        /// <summary>
-        /// Select dropdown value by its ID (id starts with 0)
-        /// </summary>
-        /// <param name="element"></param>
-        /// <param name="driver"></param>
-        /// <param name="value"></param>
-        public static void SelectPopupById(this IWebElement element, IWebDriver driver, string value)
-        {
-            element.Click();
-            BasePage basePage = new BasePage(driver);
-            basePage.SelectDropdownValue = value;
-            var newSelectDropdown = WaitForElementToBeStaleAndClickable(driver, basePage.SelectDropdownById, basePage.SelectDropdownIdXpath);
-            newSelectDropdown.WaitToLoadText(driver);
-            newSelectDropdown.Click();
-        }
-
-        /// <summary>
-        /// Wait for element to be clickable
-        /// </summary>
-        /// <param name="element"></param>
-        /// <param name="driver"></param>
-        /// <returns></returns>
         public static string WaitForElementToBeClickable(this IWebElement element, IWebDriver driver)
         {
             BasePage.Sleep(500);
